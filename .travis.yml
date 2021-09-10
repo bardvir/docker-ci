@@ -1,0 +1,12 @@
+#setup travis with relevant services (docker + node js)
+language: generic
+
+#build an image
+before_install:
+  - docker build -t bardvir/docker-ci -f Dockerfile.dev .
+
+#run the tests
+#(we add -- --coverage to make sure the command returns and doesn't hang and wait for further instructions)
+script:
+  - docker run -e CI=true bardvir/docker-ci npm run test -- --coverage
+

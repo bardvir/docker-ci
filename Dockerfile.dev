@@ -1,3 +1,5 @@
+#docker file for development environment
+
 FROM node:alpine
 
 WORKDIR '/app'

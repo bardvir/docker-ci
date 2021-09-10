@@ -1,3 +1,5 @@
+#docker file for production environment
+
 #build app (output: /app/build)
 FROM node:alpine as builder
 WORKDIR '/app'
