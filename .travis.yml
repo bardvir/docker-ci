@@ -10,3 +10,17 @@ before_install:
 script:
   - docker run -e CI=true bardvir/docker-ci npm run test -- --coverage
 
+#deploy to aws
+#all the below settings are found in your aws that you setup
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2" #mentioned in the aws url
+  app: "docker-travis-ci"
+  env: "Dockertravisci-env"
+  bucket_name: "elasticbeanstalk-us-east-2-135267829152"
+  bucket_path: "docker-travis-ci"
+  on: #when master branch is changed, then deploy
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
