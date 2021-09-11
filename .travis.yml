@@ -20,7 +20,7 @@ deploy:
   bucket_name: "elasticbeanstalk-us-east-2-135267829152"
   bucket_path: "docker-travis-ci"
   on: #when master branch is changed, then deploy
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY #credentials to AWS
   secret_access_key:
     secure: "$AWS_SECRET_KEY"
